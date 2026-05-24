@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "io.warden"
-version = "0.1.0"
+version = "1.0.0"
 description = "Warden - Discord onboarding bot + web dashboard, packaged as a Paper plugin"
 
 java {
