@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Warden">
+  <title>Warden (monochrome)</title>
+  <rect x="8" y="8" width="496" height="496" rx="92" ry="92"
+        fill="none" stroke="currentColor" stroke-width="16"/>
+  <path d="M140 140 L200 372 L256 220 L312 372 L372 140"
+        fill="none" stroke="currentColor" stroke-width="56"
+        stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,91 @@
+# Warden - Discord onboarding plugin config.
+#
+# LLM endpoint settings (API key, base URL, model) are configured from the
+# dashboard at /dash/config (AI tab) so any OpenAI-Responses-compatible gateway
+# can be used. Legacy llm.* keys from older installs are migrated automatically.
+
+discord:
+  bot_token: ""
+  client_id: ""
+  client_secret: ""
+  guild_id: ""
+  # Used only on first boot, until settings.mod_role_id is set from /dash/config.
+  bootstrap_mod_role_id: ""
+
+web:
+  bind_host: "0.0.0.0"
+  bind_port: 8788
+  # Public-facing base URL the bot will put in DMs and OAuth redirects.
+  public_url: "http://localhost:8788"
+  # Signs the dashboard / onboarding session cookies. Required for OAuth and
+  # the /onboard flow. Leave blank on a fresh install - Warden generates a
+  # random 32-byte hex value and writes it here on first start. Override via
+  # the WARDEN_SESSION_SECRET env var if you'd rather keep it out of the file.
+  session_secret: ""
+  # Directory (relative to plugins/Warden/) holding the customisable public
+  # landing template - landing.html / landing.css and any extra assets you
+  # want to add. Defaults are unpacked on first boot if the directory is
+  # missing or empty. Everything else about the landing page (server name,
+  # join URL, on/off, redirect target, etc.) is configured from
+  # /dash/config on the Landing tab.
+  www_dir: "www"
+  # Native HTTPS. Off by default. Visit /dash/https on the dashboard for a
+  # step-by-step walkthrough on obtaining a cert (certbot on Linux, win-acme
+  # on Windows). Both files are PEM-formatted - the same format Let's Encrypt
+  # produces. Paths are relative to plugins/Warden/ unless absolute.
+  #
+  # When enabled, set public_url above to your https://hostname so DMs and
+  # OAuth redirects use the secure scheme. If redirect_http is true, plain
+  # HTTP requests on bind_port get 301'd to public_url.
+  ssl:
+    enabled: false
+    port: 8443
+    cert_file: "ssl/fullchain.pem"
+    key_file: "ssl/privkey.pem"
+    redirect_http: true
+
+db:
+  # Relative to plugins/Warden/
+  file: "data/warden.db"
+
+# Anonymous usage metrics via bStats (https://bstats.org/plugin/bukkit/Warden/31403).
+# Reports only generic server stats (Bukkit version, player count, etc.). Set to
+# false here to disable for this plugin only, or disable bStats globally by
+# editing plugins/bStats/config.yml.
+metrics:
+  enabled: true
+
+# Feature modules. Each toggle gates a complete subsystem - when off, the
+# Discord listeners, HTTP routes (/dash/* + /api/v1/*), sidebar nav entry, and
+# background jobs for that module are all skipped at boot. Equivalent to that
+# module not being installed. Defaults are ON to preserve existing behaviour.
+# Changes take effect on server restart (or /warden reload after a full plugin
+# reload). The /dash/config Modules tab edits these and writes back here.
+modules:
+  moderation: true
+  violations: true
+  levels: true
+  reaction_roles: true
+  engagement: true
+  tickets: true
+  feedback: true
+  alerts: true
+  autoresponders: true
+  events_timezones: true
+
+analytics:
+  # GeoIP is OFF by default. When enabled and a MaxMind licence key is set,
+  # Warden downloads (and weekly refreshes) the configured GeoLite2 edition
+  # into db_dir and tags MC sessions with the player's country. Without a
+  # licence key the /dash/stats/geo page reports "GeoIP not configured" and
+  # the country column on mc_sessions stays null.
+  #
+  # Sign up free at https://www.maxmind.com/en/geolite2/signup to get a key.
+  # The licence key may also be supplied via the WARDEN_GEOIP_LICENSE_KEY
+  # environment variable, which takes precedence over this file.
+  geoip:
+    enabled: false
+    license_key: ""
+    edition: "GeoLite2-Country"
+    refresh_days: 7
+    db_dir: "data/geoip"

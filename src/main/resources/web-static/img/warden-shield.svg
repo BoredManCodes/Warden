@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Warden shield">
+  <title>Warden (shield mark)</title>
+  <path d="M256 24 L432 88 L432 248 C432 372 360 444 256 488 C152 444 80 372 80 248 L80 88 Z"
+        fill="#6b83ff"/>
+  <path d="M148 168 L200 360 L256 240 L312 360 L364 168"
+        fill="none" stroke="#ffffff" stroke-width="48"
+        stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

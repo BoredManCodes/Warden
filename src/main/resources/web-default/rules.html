@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rules &middot; {{server_name}}</title>
+<link rel="icon" href="{{brand_image_url}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/www/landing.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">
+      <img src="{{brand_image_url}}" alt="" width="26" height="26">
+      <span>{{server_name}}</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      {{nav_links}}
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section subpage">
+    <div class="container narrow">
+      <p class="eyebrow"><span class="eyebrow-mark">//</span> House rules</p>
+      <h1 class="page-title">Server rules.</h1>
+      <p class="lede">
+        These are the ground rules. Read them, play nice, and there's nothing else to worry about.
+      </p>
+
+      <article class="prose">
+        {{rules_content}}
+      </article>
+
+      <p class="back-link"><a href="/">&larr; Back to home</a></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; {{server_name}}</span>
+      <span class="footer-meta">Running on Warden</span>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>

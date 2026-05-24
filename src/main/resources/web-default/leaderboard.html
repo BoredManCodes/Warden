@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{leaderboard_title}} &middot; {{server_name}}</title>
+<link rel="icon" href="{{brand_image_url}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/www/landing.css">
+<style>
+  .lb-wrap{max-width:920px;margin:0 auto}
+  .lb-table{width:100%;border-collapse:collapse;margin-top:1.75rem;
+    background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+    border-radius:14px;overflow:hidden}
+  .lb-table th,.lb-table td{padding:.85rem 1rem;text-align:left;
+    border-bottom:1px solid rgba(255,255,255,.06);font-size:.95rem}
+  .lb-table th{background:rgba(255,255,255,.04);font-weight:700;
+    text-transform:uppercase;letter-spacing:.04em;font-size:.78rem;color:#9aa3bd}
+  .lb-table tr:last-child td{border-bottom:none}
+  .lb-table tr:nth-child(-n+3) .lb-rank{font-weight:800}
+  .lb-rank{color:#9aa3bd;width:4rem;font-variant-numeric:tabular-nums}
+  .lb-table tr:nth-child(1) .lb-rank{color:#f7c948}
+  .lb-table tr:nth-child(2) .lb-rank{color:#cfd6e6}
+  .lb-table tr:nth-child(3) .lb-rank{color:#c08a5b}
+  .lb-user{font-weight:600;color:#e8eaf0}
+  .lb-level,.lb-xp,.lb-msgs{font-variant-numeric:tabular-nums;color:#cfd6e6}
+  .lb-empty{text-align:center;color:#9aa3bd;padding:2.5rem 1rem !important}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">
+      <img src="{{brand_image_url}}" alt="" width="26" height="26">
+      <span>{{server_name}}</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      {{nav_links}}
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section subpage">
+    <div class="container narrow lb-wrap">
+      <p class="eyebrow"><span class="eyebrow-mark">//</span> Rankings</p>
+      <h1 class="page-title">{{leaderboard_title}}</h1>
+      <p class="lede">{{leaderboard_description}}</p>
+
+      <table class="lb-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Member</th>
+            <th>Level</th>
+            <th>XP</th>
+            <th>Messages</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{leaderboard_rows}}
+        </tbody>
+      </table>
+
+      <p class="back-link"><a href="/">&larr; Back to home</a></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; {{server_name}}</span>
+      <span class="footer-meta">Running on Warden</span>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>

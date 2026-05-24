@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{map_label}} &middot; {{server_name}}</title>
+<link rel="icon" href="{{brand_image_url}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/www/landing.css">
+</head>
+<body class="body-fixed">
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">
+      <img src="{{brand_image_url}}" alt="" width="26" height="26">
+      <span>{{server_name}}</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      {{nav_links}}
+    </nav>
+  </div>
+</header>
+
+<main class="map-shell">
+  <div class="map-bar">
+    <div class="map-bar-inner">
+      <p class="eyebrow"><span class="eyebrow-mark">//</span> {{map_provider_label}}</p>
+      <h1 class="map-title">{{map_label}}</h1>
+    </div>
+    <a class="btn ghost map-open" href="{{map_url}}" target="_blank" rel="noopener">
+      Open in new tab
+      <svg class="btn-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7"/><path d="M21 3 10 14"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+    </a>
+  </div>
+  <iframe class="map-frame"
+          src="{{map_url}}"
+          title="{{map_label}}"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+</main>
+
+</body>
+</html>

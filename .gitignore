@@ -1,0 +1,37 @@
+# Gradle
+.gradle/
+build/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# IDEs
+.idea/
+*.iml
+.vscode/*
+!.vscode/extensions.json
+.classpath
+.project
+.settings/
+bin/
+
+# Build artifacts
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local secrets / runtime
+.env
+.env.*
+!.env.example
+plugins/Warden/data/
+plugins/Warden/config.yml
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+

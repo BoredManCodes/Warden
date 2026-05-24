@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home &middot; {{server_name}}</title>
+<link rel="icon" href="{{brand_image_url}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/www/landing.css">
+<style>:root{--accent:{{accent_color}}}</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">
+      <img src="{{brand_image_url}}" alt="" width="26" height="26">
+      <span>{{server_name}}</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      {{nav_links}}
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      {{hero_image_block}}
+      <div class="hero-glow"></div>
+      <div class="hero-grid"></div>
+    </div>
+
+    <div class="hero-inner">
+      <p class="eyebrow"><span class="eyebrow-mark">//</span> Minecraft Server</p>
+      <h1 class="hero-title">{{server_name}}</h1>
+      {{tagline_block}}
+
+      <div class="hero-cta">
+        {{join_button}}
+        <button class="btn ghost" type="button" data-copy-ip>
+          <svg class="btn-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+          <span class="btn-label">Copy IP</span>
+        </button>
+      </div>
+
+      {{address_block}}
+    </div>
+
+    <div class="stats-strip" role="group" aria-label="Live stats">
+      <div class="stat">
+        <div class="stat-num">{{players_online}}<span class="stat-sub">/{{players_max}}</span></div>
+        <div class="stat-key">{{players_label}}</div>
+      </div>
+      <div class="stat-sep" aria-hidden="true"></div>
+      <div class="stat">
+        <div class="stat-num">{{discord_members}}</div>
+        <div class="stat-key">{{members_label}}</div>
+      </div>
+      <div class="stat-sep" aria-hidden="true"></div>
+      <div class="stat">
+        <div class="stat-num"><span class="stat-pulse" aria-hidden="true"></span>Online</div>
+        <div class="stat-key">Server status</div>
+      </div>
+    </div>
+  </section>
+
+  {{features_block}}
+
+  {{promo_block}}
+
+  <section class="section section-alt" id="community">
+    <div class="container community">
+      <div>
+        <p class="eyebrow"><span class="eyebrow-mark">//</span> Get connected</p>
+        <h2 class="section-title">The good stuff happens in Discord.</h2>
+        <p class="lede">
+          Plans for the next build night, screenshots of half-finished megaprojects, and someone
+          posting their wolf at three in the morning. That is most of the server, honestly.
+        </p>
+        <div class="cta-row">
+          {{join_button}}
+        </div>
+      </div>
+      <aside class="callout">
+        <div class="callout-key">Address</div>
+        <div class="callout-val">
+          <code>{{server_address}}</code>
+        </div>
+        <div class="callout-meta">Java Edition &middot; latest version</div>
+      </aside>
+    </div>
+  </section>
+
+  {{faq_block}}
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; {{server_name}}</span>
+      <span class="footer-meta">
+        {{signin_footer_link}}
+        Running on Warden
+      </span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var btn = document.querySelector('[data-copy-ip]');
+    if (!btn) return;
+    var codeEl = document.querySelector('.address code, .callout-val code');
+    var ip = codeEl ? codeEl.textContent.trim() : '';
+    if (!ip) { btn.hidden = true; return; }
+    var label = btn.querySelector('.btn-label') || btn;
+    var original = label.textContent;
+    btn.addEventListener('click', function () {
+      navigator.clipboard.writeText(ip).then(function () {
+        label.textContent = 'Copied';
+        btn.classList.add('is-copied');
+        setTimeout(function () {
+          label.textContent = original;
+          btn.classList.remove('is-copied');
+        }, 1400);
+      }).catch(function () {
+        label.textContent = ip;
+        setTimeout(function () { label.textContent = original; }, 2000);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

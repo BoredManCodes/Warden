@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" role="img" aria-label="Warden">
+  <title>Warden</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7d93ff"/>
+      <stop offset="1" stop-color="#5a73ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="320" rx="20" ry="20" fill="url(#g)"/>
+  <g transform="translate(80 60)">
+    <rect width="200" height="200" rx="38" ry="38" fill="#ffffff" fill-opacity=".14"/>
+    <path d="M55 55 L78 145 L100 86 L122 145 L145 55"
+          fill="none" stroke="#ffffff" stroke-width="22"
+          stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <text x="330" y="170"
+        font-family="-apple-system, system-ui, 'Segoe UI', Roboto, Inter, sans-serif"
+        font-size="120" font-weight="900" fill="#ffffff" letter-spacing="-3">warden</text>
+  <text x="330" y="232"
+        font-family="-apple-system, system-ui, 'Segoe UI', Roboto, Inter, sans-serif"
+        font-size="34" font-weight="500" fill="#ffffff" fill-opacity=".82"
+        letter-spacing="0.5">Discord onboarding for Minecraft servers</text>
+</svg>

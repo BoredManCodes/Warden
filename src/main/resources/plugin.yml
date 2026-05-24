@@ -1,0 +1,23 @@
+name: Warden
+version: ${version}
+main: io.warden.WardenPlugin
+api-version: '1.21'
+authors: [Warden]
+description: Discord onboarding bot and web dashboard. Gates new members behind a configurable rules/questions flow with optional LLM triage and mod review.
+load: POSTWORLD
+softdepend: [DiscordSRV, GrimAC]
+
+commands:
+  warden:
+    description: Warden admin commands
+    usage: /warden <reload|status|reonboard <discordId|playerName>|debug [label]>
+    permission: warden.admin
+    permission-message: You don't have permission to use /warden.
+
+permissions:
+  warden.admin:
+    description: Allows use of /warden admin commands.
+    default: op
+  warden.debug:
+    description: Allows generating Warden debug reports via /warden debug.
+    default: op
